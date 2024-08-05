@@ -23,7 +23,7 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 
 # Set up Streamlit
-st.title("ASL Alphabet Recognition with Hand Landmarks")
+st.title("ASL Alphabet Recognition")
 
 st.subheader("AIG 210 - Computer Vision - Group 4 Final Project")
 
