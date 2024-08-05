@@ -46,7 +46,7 @@ def draw_hand_landmarks(image, hand_landmarks):
 
 # Main function
 def main():
-    st.header("Upload an Image")
+    st.subheader("Upload an Image")
 
     # Allow image upload
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
