@@ -32,19 +32,23 @@ You can install these dependencies using:
 
 ```bash
 pip install tensorflow opencv-python mediapipe streamlit numpy matplotlib scikit-learn
+```
 
 ### Installation
 
 1. Clone this repository: 
+```bash
 git clone https://github.com/vemilagan/CV-Project.git
 cd cd CV-Project
+```
 
 2. Run the Jupyter Notebook to train and evaluate the model:
 Open the asl_tensorflow_mobilenetv2.ipynb file in Jupyter Notebook and follow the instructions to load the data, train the model, and evaluate its performance.
 
 3. Use Streamlit to run the user interface:
+```bash
 streamlit run your_script.py
-
+```
 (Replace your_script.py with the name of your Streamlit application file.)
 
 # Model Architecture
@@ -63,9 +67,12 @@ This project uses the MobileNetV2 architecture, a lightweight and efficient conv
 - Dataset: ASL Alphabet Dataset by Akash Nagaraj
 - GitHub Repository: Sign Language to Speech: Unvoiced
 
-Citation:
+### Citation:
 {https://www.kaggle.com/grassknoted/aslalphabet_akash_nagaraj_2018,
 title={ASL Alphabet},
 url={https://www.kaggle.com/dsv/29550},
 DOI={10.34740/KAGGLE/DSV/29550},
 }
+
+## Contributing
+If you wish to contribute to this project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
