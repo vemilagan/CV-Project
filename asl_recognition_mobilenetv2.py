@@ -6,7 +6,7 @@ import tensorflow as tf
 
 # Load the trained Keras model
 try:
-    model = tf.keras.models.load_model('asl_model_mobilenetv2.keras')
+    model = tf.keras.models.load_model('asl_model_mobilenetv2.h5')  # Updated file name
     st.write("Model loaded successfully.")
 except Exception as e:
     st.error(f"Error loading model: {e}")
@@ -46,81 +46,38 @@ def draw_hand_landmarks(image, hand_landmarks):
 
 # Main function
 def main():
-    # Provide an option for the user to choose input method
-    option = st.radio("Select input method:", ("Upload Image", "Use Webcam"))
+    st.header("Upload an Image")
 
-    if option == "Upload Image":
-        # Allow image upload
-        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    # Allow image upload
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-        if uploaded_file is not None:
-            # Read the uploaded image
-            file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-            image = cv2.imdecode(file_bytes, 1)
-            image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    if uploaded_file is not None:
+        # Read the uploaded image
+        file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+        image = cv2.imdecode(file_bytes, 1)
+        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-            # Process image
-            with mp_hands.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5) as hands:
-                result = hands.process(image_rgb)
-                if result.multi_hand_landmarks:
-                    for hand_landmarks in result.multi_hand_landmarks:
-                        draw_hand_landmarks(image, hand_landmarks)
-
-            # Preprocess image for prediction
-            resized_image = cv2.resize(image, (128, 128))
-            normalized_image = resized_image / 255.0
-            input_data = np.expand_dims(normalized_image, axis=0)
-
-            # Check if model is loaded before making predictions
-            if model is not None:
-                prediction = model.predict(input_data)
-                predicted_character = labels_dict[np.argmax(prediction)]
-                st.write(f"Predicted: {predicted_character}")
-            else:
-                st.error("Model is not loaded. Unable to make predictions.")
-
-            st.image(image, channels="BGR", use_column_width=True)
-
-    elif option == "Use Webcam":
-        # Open webcam
-        cap = cv2.VideoCapture(0)
-        
+        # Process image
         with mp_hands.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5) as hands:
-            while cap.isOpened():
-                ret, frame = cap.read()
-                if not ret:
-                    st.error("Failed to capture frame from webcam.")
-                    break
+            result = hands.process(image_rgb)
+            if result.multi_hand_landmarks:
+                for hand_landmarks in result.multi_hand_landmarks:
+                    draw_hand_landmarks(image, hand_landmarks)
 
-                # Flip and process frame
-                frame = cv2.flip(frame, 1)
-                image_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                result = hands.process(image_rgb)
+        # Preprocess image for prediction
+        resized_image = cv2.resize(image, (128, 128))
+        normalized_image = resized_image / 255.0
+        input_data = np.expand_dims(normalized_image, axis=0)
 
-                # Draw landmarks
-                if result.multi_hand_landmarks:
-                    for hand_landmarks in result.multi_hand_landmarks:
-                        draw_hand_landmarks(frame, hand_landmarks)
+        # Check if model is loaded before making predictions
+        if model is not None:
+            prediction = model.predict(input_data)
+            predicted_character = labels_dict[np.argmax(prediction)]
+            st.write(f"Predicted: {predicted_character}")
+        else:
+            st.error("Model is not loaded. Unable to make predictions.")
 
-                # Preprocess frame for prediction
-                resized_frame = cv2.resize(frame, (128, 128))
-                normalized_frame = resized_frame / 255.0
-                input_data = np.expand_dims(normalized_frame, axis=0)
-
-                # Check if model is loaded before making predictions
-                if model is not None:
-                    prediction = model.predict(input_data)
-                    predicted_character = labels_dict[np.argmax(prediction)]
-                    cv2.putText(frame, f"Predicted: {predicted_character}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-                else:
-                    st.error("Model is not loaded. Unable to make predictions.")
-
-                st.image(frame, channels="BGR", use_column_width=True)
-
-                if st.button("Stop", key="stop_button_webcam"):
-                    break
-
-        cap.release()
+        st.image(image, channels="BGR", use_column_width=True)
 
 if __name__ == "__main__":
     main()
