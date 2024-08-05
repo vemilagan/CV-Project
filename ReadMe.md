@@ -38,7 +38,7 @@ pip install tensorflow opencv-python mediapipe streamlit numpy matplotlib scikit
 1. Clone this repository: 
 ```bash
 git clone https://github.com/vemilagan/CV-Project.git
-cd cd CV-Project
+cd CV-Project
 ```
 
 2. Run the Jupyter Notebook to train and evaluate the model:
