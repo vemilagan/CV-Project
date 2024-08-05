@@ -4,13 +4,11 @@ import numpy as np
 import mediapipe as mp
 import tensorflow as tf
 
-# Load the trained Keras model
 try:
-    model = tf.keras.models.load_model('asl_model_mobilenetv2.h5')  # Updated file name
-    st.write("Model loaded successfully.")
+    model = tf.keras.models.load_model('asl_model_mobilenetv2.h5')
 except Exception as e:
     st.error(f"Error loading model: {e}")
-    model = None  # Ensure model is set to None if loading fails
+    model = None  
 
 # Define the labels dictionary
 labels_dict = {
@@ -26,6 +24,8 @@ mp_drawing = mp.solutions.drawing_utils
 
 # Set up Streamlit
 st.title("ASL Alphabet Recognition with Hand Landmarks")
+
+st.subheader("AIG 210 - Computer Vision - Group 4 Final Project")
 
 # Function to draw hand landmarks with red and green points
 def draw_hand_landmarks(image, hand_landmarks):
@@ -73,7 +73,7 @@ def main():
         if model is not None:
             prediction = model.predict(input_data)
             predicted_character = labels_dict[np.argmax(prediction)]
-            st.write(f"Predicted: {predicted_character}")
+            st.markdown(f"<h2 style='color: red; font-size: 24px;'><strong>Predicted: {predicted_character}</strong></h2>", unsafe_allow_html=True)
         else:
             st.error("Model is not loaded. Unable to make predictions.")
 
