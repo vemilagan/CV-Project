@@ -18,7 +18,6 @@ For more details, visit the ASL Alphabet Dataset page on Kaggle: [ASL Alphabet D
 ### Prerequisites
 
 To run this project, you will need:
-
 - Python 3.x
 - TensorFlow
 - OpenCV
