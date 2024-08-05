@@ -2,8 +2,4 @@ streamlit
 opencv-python-headless
 numpy
 mediapipe
-<<<<<<< HEAD
 tensorflow
-=======
-tensorflow
->>>>>>> 867d1f73258a6d9302044094fd4c59deb1b035f7
