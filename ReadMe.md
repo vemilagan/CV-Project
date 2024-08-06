@@ -69,9 +69,11 @@ This project uses the MobileNetV2 architecture, a lightweight and efficient conv
 ### Citation:
 “ASL Alphabet.” Kaggle, 22 Apr. 2018, www.kaggle.com/datasets/grassknoted/asl-alphabet.
 
+Garimella, Mihir. “Sign Language Recognition with Advanced Computer Vision.” Medium, 4 Dec. 2022, towardsdatascience.com/sign-language-recognition-with-advanced-computer-vision-7b74f20f3442.
+
 “Hand landmarks detection guide.” Google AI for Developers, ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker.
 
-Garimella, Mihir. “Sign Language Recognition with Advanced Computer Vision.” Medium, 4 Dec. 2022, towardsdatascience.com/sign-language-recognition-with-advanced-computer-vision-7b74f20f3442.
+Sandler, Mark, et al. “MobileNetV2: Inverted Residuals and Linear Bottlenecks.” arXiv (Cornell University), Jan. 2018, https://doi.org/10.48550/arxiv.1801.04381.
 
 ## Contributing
 If you wish to contribute to this project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
