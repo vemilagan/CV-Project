@@ -9,7 +9,7 @@ This project focuses on recognizing American Sign Language (ASL) alphabet charac
 The dataset used for this project is the ASL Alphabet Dataset, which is a collection of images representing the ASL alphabet. It contains:
 
 - **Training Data**: 87,000 images of size 200x200 pixels, spread across 29 classes. These classes include the 26 letters (A-Z) and three additional classes for SPACE, DELETE, and NOTHING, aiding in real-time applications and classification.
-- **Test Data**: 29 images designed to encourage testing with real-world images.
+- **Test Data**: 28 images designed to encourage testing with real-world images.
 
 For more details, visit the ASL Alphabet Dataset page on Kaggle: [ASL Alphabet Dataset](https://www.kaggle.com/datasets/grassknoted/asl-alphabet)
 
