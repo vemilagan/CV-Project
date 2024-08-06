@@ -50,7 +50,7 @@ streamlit run your_script.py
 ```
 (Replace your_script.py with the name of your Streamlit application file.)
 
-# Model Architecture
+## Model Architecture
 This project uses the MobileNetV2 architecture, a lightweight and efficient convolutional neural network suitable for mobile and edge devices. The model is fine-tuned on the ASL Alphabet dataset to achieve high accuracy in recognizing sign language gestures.
 
 ## Results
@@ -63,15 +63,15 @@ This project uses the MobileNetV2 architecture, a lightweight and efficient conv
 - The confusion matrix illustrates the model's ability to correctly classify each ASL alphabet gesture
 
 ## Acknowledgements
-- Dataset: ASL Alphabet Dataset by Akash Nagaraj
-- GitHub Repository: Sign Language to Speech: Unvoiced
+- Dataset: ASL Alphabet Dataset by Akash Nagaraj https://www.kaggle.com/datasets/grassknoted/asl-alphabet
+- GitHub Repository: Sign Language to Speech: Unvoiced https://github.com/grassknoted/Unvoiced
 
 ### Citation:
-{https://www.kaggle.com/grassknoted/aslalphabet_akash_nagaraj_2018,
-title={ASL Alphabet},
-url={https://www.kaggle.com/dsv/29550},
-DOI={10.34740/KAGGLE/DSV/29550},
-}
+“ASL Alphabet.” Kaggle, 22 Apr. 2018, www.kaggle.com/datasets/grassknoted/asl-alphabet.
+
+“Hand landmarks detection guide.” Google AI for Developers, ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker.
+
+Garimella, Mihir. “Sign Language Recognition with Advanced Computer Vision.” Medium, 4 Dec. 2022, towardsdatascience.com/sign-language-recognition-with-advanced-computer-vision-7b74f20f3442.
 
 ## Contributing
 If you wish to contribute to this project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
