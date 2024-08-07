@@ -4,29 +4,34 @@ import numpy as np
 import mediapipe as mp
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-import zipfile
+import requests
 import os
 
-# Function to extract the model
-def extract_model(zip_path, extract_to):
-    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-        zip_ref.extractall(extract_to)
+# OneDrive link
+onedrive_link = "https://1drv.ms/u/s!An8rvMR27KPcioQ5CvHRrwIL-v6diA?e=ab1Y6Y"
 
-# Ensure the model is extracted and loaded
-zip_path = 'asl_model_cnn.zip'
-model_dir = 'model_dir'
-model_path = os.path.join(model_dir, 'asl_model_cnn.h5')
+# Download model function
+def download_model(link, filename='asl_model_cnn.h5'):
+    # Using the OneDrive link
+    response = requests.get(link)
+    if response.status_code == 200:
+        with open(filename, 'wb') as f:
+            f.write(response.content)
+    else:
+        st.error("Failed to download the model. Check the link.")
 
-# Extract the model if not already extracted
-if not os.path.exists(model_path):
-    extract_model(zip_path, model_dir)
+# Check if the model file exists; if not, download it
+model_filename = 'asl_model_cnn.h5'
+if not os.path.exists(model_filename):
+    st.write("Downloading model...")
+    download_model(onedrive_link, model_filename)
 
 # Load the model
 try:
-    model = load_model(model_path)
+    model = load_model(model_filename)
 except Exception as e:
     st.error(f"Error loading model: {e}")
-    model = None
+    model = None  
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
