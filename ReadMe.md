@@ -82,11 +82,19 @@ The ground truth for each image in the test dataset corresponds to the true clas
 ### Citation:
 “ASL Alphabet.” Kaggle, 22 Apr. 2018, www.kaggle.com/datasets/grassknoted/asl-alphabet.
 
-Computer Vision Engineer. “Sign language detection with Python and Scikit Learn | Landmark detection | Computer vision tutorial.” YouTube, 26 Jan. 2023, www.youtube.com/watch?v=MJCSjXepaAM.
-
 Garimella, Mihir. “Sign Language Recognition with Advanced Computer Vision.” Medium, 4 Dec. 2022, towardsdatascience.com/sign-language-recognition-with-advanced-computer-vision-7b74f20f3442.
 
 “Hand landmarks detection guide.” Google AI for Developers, ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker.
+
+McDonald, Andy. “Uploading and Reading Files with Streamlit.” Medium, Medium, 22 Jan. 2023, andymcdonaldgeo.medium.com/uploading-and-reading-files -with-streamlit-92885ac3a1b6.
+
+“Mediapipe Solutions Guide | Google Ai Edge | Google AI for Developers.” Google, Google,ai.google.dev/edge/mediapipe/solutions/guide. Accessed 7 Aug. 2024.
+
+“OpenCV-Python Tutorials.” OpenCV,docs.opencv.org/4.x/d6/d00/tutorial_py_root.html. Accessed 7 Aug. 2024.
+
+Streamlit Documentation, Streamlit, docs.streamlit.io/. Accessed 7 Aug. 2024.
+
+Vimuth, Lakshitha. “Hand Detection in Python Using Opencv and MediaPipe.” Medium, Medium, 22 Oct. 2023, lvimuth.medium.com/hand-detection-in-python-using-opencv-and-mediapipe-30c7b54f5ff4.
 
 ## Contributing
 If you wish to contribute to this project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
