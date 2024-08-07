@@ -1,39 +1,31 @@
 import streamlit as st
-import cv2
-import numpy as np
-import mediapipe as mp
+import requests
+import tempfile
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-import requests
-import os
 
-# Function to download the model from OneDrive
-def download_model(url, filename):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Check if the request was successful
-        with open(filename, 'wb') as f:
-            f.write(response.content)
-        st.info("Model downloaded successfully.")
-    except requests.exceptions.RequestException as e:
-        st.error(f"Failed to download the model: {e}")
+# Define the direct download link for Google Drive
+direct_link = 'https://drive.google.com/uc?export=download&id=1Zk4ssy2IFYVUU4uFV072EmvQaKq2aOw3'
+
+# Download the model from Google Drive
+@st.cache_data
+def download_model(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        temp = tempfile.NamedTemporaryFile(delete=False)
+        temp.write(response.content)
+        temp.close()
+        return temp.name
+    else:
+        st.error("Failed to download the model")
         return None
 
-# URL of the model file on OneDrive
-model_url = 'https://api.onedrive.com/v1.0/shares/u!An8rvMR27KPcioRoeRuLwtzX8ZJKHQ/root/content'
-model_filename = 'asl_model_cnn.h5'
-
-# Download the model if it doesn't exist
-if not os.path.exists(model_filename):
-    st.info("Downloading model...")
-    download_model(model_url, model_filename)
-
-# Load the model
-try:
-    model = load_model(model_filename)
-except Exception as e:
-    st.error(f"Error loading model: {e}")
-    model = None
+# Use the function to download and load the model
+model_path = download_model(direct_link)
+if model_path:
+    model = load_model(model_path)
+else:
+    st.error("Model not loaded due to download failure.")
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
