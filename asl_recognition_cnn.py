@@ -8,7 +8,7 @@ import requests
 import os
 
 # OneDrive link
-onedrive_link = "https://1drv.ms/u/s!An8rvMR27KPcioQ5CvHRrwIL-v6diA?e=ab1Y6Y"
+onedrive_link = "https://1drv.ms/u/s!An8rvMR27KPcioQ5CvHRrwIL-v6diA"
 
 # Download model function
 def download_model(link, filename='asl_model_cnn.h5'):
