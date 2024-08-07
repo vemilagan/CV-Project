@@ -4,13 +4,29 @@ import numpy as np
 import mediapipe as mp
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+import zipfile
+import os
+
+# Function to extract the model
+def extract_model(zip_path, extract_to):
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(extract_to)
+
+# Ensure the model is extracted and loaded
+zip_path = 'asl_model_cnn.zip'
+model_dir = 'model_dir'
+model_path = os.path.join(model_dir, 'asl_model_cnn.h5')
+
+# Extract the model if not already extracted
+if not os.path.exists(model_path):
+    extract_model(zip_path, model_dir)
 
 # Load the model
 try:
-    model = load_model('asl_model_cnn.h5')
+    model = load_model(model_path)
 except Exception as e:
     st.error(f"Error loading model: {e}")
-    model = None  
+    model = None
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
