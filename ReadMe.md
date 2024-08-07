@@ -62,6 +62,9 @@ This project uses the CNN architecture, a lightweight and efficient convolutiona
 - The training and validation accuracy and loss curves indicate that the model converges well and performs effectively on unseen data.
 - The confusion matrix illustrates the model's ability to correctly classify each ASL alphabet gesture
 
+## Ground Truth
+The ground truth for each image in the test dataset corresponds to the true class labels, which were manually verified. The model's predictions are compared against these ground truth labels to compute evaluation metrics such as accuracy, precision, recall, and F1-score. This ensures a reliable assessment of the model's performance.
+
 ## Acknowledgements
 - Dataset: ASL Alphabet Dataset by Akash Nagaraj available at https://www.kaggle.com/datasets/grassknoted/asl-alphabet
 - GitHub Repository: Sign Language to Speech: Unvoiced available at https://github.com/grassknoted/Unvoiced
