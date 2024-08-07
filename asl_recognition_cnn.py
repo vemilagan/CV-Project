@@ -7,31 +7,33 @@ from tensorflow.keras.models import load_model
 import requests
 import os
 
-# OneDrive link
-onedrive_link = "https://1drv.ms/u/s!An8rvMR27KPcioRoeRuLwtzX8ZJKHQ"
-
-# Download model function
-def download_model(link, filename='asl_model_cnn.h5'):
-    # Using the OneDrive link
-    response = requests.get(link)
-    if response.status_code == 200:
+# Function to download the model from OneDrive
+def download_model(url, filename):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Check if the request was successful
         with open(filename, 'wb') as f:
             f.write(response.content)
-    else:
-        st.error("Failed to download the model. Check the link.")
+        st.info("Model downloaded successfully.")
+    except requests.exceptions.RequestException as e:
+        st.error(f"Failed to download the model: {e}")
+        return None
 
-# Check if the model file exists; if not, download it
+# URL of the model file on OneDrive
+model_url = 'https://api.onedrive.com/v1.0/shares/u!An8rvMR27KPcioRoeRuLwtzX8ZJKHQ/root/content'
 model_filename = 'asl_model_cnn.h5'
+
+# Download the model if it doesn't exist
 if not os.path.exists(model_filename):
-    st.write("Downloading model...")
-    download_model(onedrive_link, model_filename)
+    st.info("Downloading model...")
+    download_model(model_url, model_filename)
 
 # Load the model
 try:
     model = load_model(model_filename)
 except Exception as e:
     st.error(f"Error loading model: {e}")
-    model = None  
+    model = None
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
