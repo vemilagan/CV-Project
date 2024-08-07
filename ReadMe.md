@@ -82,6 +82,8 @@ The ground truth for each image in the test dataset corresponds to the true clas
 ### Citation:
 “ASL Alphabet.” Kaggle, 22 Apr. 2018, www.kaggle.com/datasets/grassknoted/asl-alphabet.
 
+Computer Vision Engineer. “Sign language detection with Python and Scikit Learn | Landmark detection | Computer vision tutorial.” YouTube, 26 Jan. 2023, www.youtube.com/watch?v=MJCSjXepaAM.
+
 Garimella, Mihir. “Sign Language Recognition with Advanced Computer Vision.” Medium, 4 Dec. 2022, towardsdatascience.com/sign-language-recognition-with-advanced-computer-vision-7b74f20f3442.
 
 “Hand landmarks detection guide.” Google AI for Developers, ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker.
