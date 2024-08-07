@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project focuses on recognizing American Sign Language (ASL) alphabet characters using Convolutional Neural Network (CNN) model. The project is designed to facilitate communication for individuals who use ASL by translating sign language gestures into text or speech.
+This project focuses on recognizing American Sign Language (ASL) alphabet characters using Convolutional Neural Network (CNN). The project is designed to facilitate communication for individuals who use ASL by translating sign language gestures into text or speech.
 
 ## Dataset
 
@@ -51,7 +51,16 @@ streamlit run your_script.py
 (Replace your_script.py with the name of your Streamlit application file.)
 
 ## Model Architecture
-This project uses the CNN architecture, a lightweight and efficient convolutional neural network suitable for mobile and edge devices. The model is fine-tuned on the ASL Alphabet dataset to achieve high accuracy in recognizing sign language gestures.
+This project utilizes a custom Convolutional Neural Network (CNN) architecture designed to effectively recognize American Sign Language (ASL) alphabet characters. The model is built from scratch, tailored to process input images of size 150x150 pixels, and includes multiple convolutional layers followed by pooling layers. This architecture is optimized for both accuracy and computational efficiency, making it suitable for deployment on various platforms.
+
+### Key Features of the Model:
+- **Convolutional Layers**: Capture spatial hierarchies in images to recognize features specific to ASL gestures.
+- **Pooling Layers**: Reduce dimensionality and computational complexity, helping to improve generalization.
+- **Dense Layers**: Facilitate decision-making based on extracted features to predict ASL characters.
+- **Dropout Layer**: Reduces overfitting by preventing the network from becoming too reliant on any specific feature set.
+- **Activation Functions**: Employ ReLU activations in hidden layers for non-linear transformations, and softmax activation in the output layer for multi-class classification across 29 classes.
+
+The model is trained and validated on the ASL Alphabet dataset to achieve high accuracy in recognizing sign language gestures, with ground truth annotations used for rigorous evaluation.
 
 ## Results
 - The model achieved high accuracy on both the training and test datasets.
