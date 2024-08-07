@@ -26,11 +26,12 @@ To run this project, you will need:
 - NumPy
 - Matplotlib
 - Scikit-learn
+- Requests
 
 You can install these dependencies using:
 
 ```bash
-pip install tensorflow opencv-python mediapipe streamlit numpy matplotlib scikit-learn
+pip install tensorflow opencv-python mediapipe streamlit numpy matplotlib scikit-learn requests
 ```
 
 ### Installation
