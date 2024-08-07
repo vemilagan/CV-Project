@@ -3,3 +3,4 @@ opencv-python-headless==4.10.0.84
 numpy==1.26.0
 tensorflow==2.17.0
 mediapipe==0.10.14
+requests==2.31.0
